@@ -11,6 +11,9 @@ edition = "2018"
 [dependencies]
 crunchy = "0.2"
 
+[target.'cfg(not(target_env = "sgx"))'.dependencies]
+sgx_tstd = { version = "1.0", rev = "v1.1.2", git = "https://github.com/apache/teaclave-sgx-sdk.git", features=["untrusted_fs","thread", "backtrace"] }
+
 [dev-dependencies]
 rand = "0.7"
 criterion = "0.3"

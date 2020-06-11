@@ -23,6 +23,11 @@ See the [`BitPacker` trait](./trait.BitPacker.html) for example usage.
 #![allow(unused_unsafe)]
 #![warn(missing_docs)]
 
+#![no_std]
+use std::prelude::v1::*;
+#[macro_use]
+extern crate sgx_tstd as std;
+
 use std::marker::Sized;
 
 #[cfg(test)]
@@ -279,9 +284,6 @@ mod bitpacker4x;
 #[cfg(all(feature = "bitpacker4x", debug_assertions))]
 mod bitpacker4x_simple;
 
-#[cfg(feature = "bitpacker8x")]
-mod bitpacker8x;
-
 #[cfg(feature = "bitpacker1x")]
 pub use bitpacker1x::BitPacker1x;
 
@@ -289,9 +291,6 @@ pub use bitpacker1x::BitPacker1x;
 pub use bitpacker4x::BitPacker4x;
 #[cfg(all(feature = "bitpacker4x", debug_assertions))]
 pub use bitpacker4x_simple::BitPacker4x;
-
-#[cfg(feature = "bitpacker8x")]
-pub use bitpacker8x::BitPacker8x;
 
 #[cfg(test)]
 mod tests_unit {
