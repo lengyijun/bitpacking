@@ -97,8 +97,6 @@ mod scalar {
 
 #[derive(Clone, Copy)]
 enum InstructionSet {
-    #[cfg(target_arch = "x86_64")]
-    SSE3,
     Scalar,
 }
 
